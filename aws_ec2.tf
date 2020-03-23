@@ -19,13 +19,12 @@ resource "aws_security_group" "template-basic-ec2-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # I'm not sure this is needed
-/*  egress {
+  egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-  }*/
+  }
 
   tags = {
     owner = "terraform-templates-aws-ec2"
