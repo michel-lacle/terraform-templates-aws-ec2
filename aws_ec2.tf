@@ -8,7 +8,7 @@ resource "aws_security_group" "template-ec2-basic" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0", "::/0"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -16,7 +16,7 @@ resource "aws_security_group" "template-ec2-basic" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0", "::/0"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # I'm not sure this is needed
