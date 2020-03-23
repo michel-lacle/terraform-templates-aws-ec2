@@ -1,4 +1,4 @@
-resource "aws_security_group" "template-ec2-basic" {
+resource "aws_security_group" "template-basic-ec2-sg" {
   name        = "template-ec2-basic"
   description = "Allow ssh & http inbound traffic"
   vpc_id      = "vpc-bb9f3bc0"
@@ -33,8 +33,7 @@ resource "aws_security_group" "template-ec2-basic" {
   }
 }
 
-resource "aws_instance" "template-ec2-basic" {
-  count	        = 1
+resource "aws_instance" "template-basic-ec2" {
   ami           = "ami-0a887e401f7654935"
   instance_type = "t2.micro"
 
@@ -43,7 +42,7 @@ resource "aws_instance" "template-ec2-basic" {
   # name.
   key_name = "terraform-templates-aws-ec2"
 
-  vpc_security_group_ids = ["sg-0d9a3a138f6746c16"]
+  vpc_security_group_ids = [aws_security_group.template-basic-ec2-sg.id]
 
  tags = {
     owner = "terraform-templates-aws-ec2"
@@ -51,8 +50,8 @@ resource "aws_instance" "template-ec2-basic" {
   }
 }
 
-# output "aws_instance_ip" {
+ output "aws_instance_ip" {
 
-#   value = aws_instance.example[0].public_ip
-#   description = "The public IP address of our instance"
-# }
+   value = aws_instance.template-basic-ec2.public_ip
+   description = "The public IP address of our instance"
+ }
