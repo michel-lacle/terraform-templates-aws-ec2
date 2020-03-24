@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2-sg-root-device" {
-  name = "template-ec2-basic"
+  name = "ec2-sg-root-device"
   description = "Allow ssh & http inbound traffic"
   vpc_id = "vpc-bb9f3bc0"
 
