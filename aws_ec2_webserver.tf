@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2-sg-webserver" {
-  name = "template-ec2-basic"
+  name = "template-ec2-webserver"
   description = "Allow ssh & http inbound traffic"
   vpc_id = "vpc-bb9f3bc0"
 
