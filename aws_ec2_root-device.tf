@@ -43,7 +43,7 @@ resource "aws_instance" "ec2-root-device" {
   root_block_device {
     volume_type = "io1"
 
-    iops = 3000
+    iops = 20000
 
     # in GiB
     volume_size = "16"
