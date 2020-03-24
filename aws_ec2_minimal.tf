@@ -11,14 +11,8 @@ resource "aws_security_group" "template-basic-ec2-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
+  # this is needed to allow the ec2 instance to access the external
+  # world, for example when you need to do a yum update.
   egress {
     from_port   = 0
     to_port     = 0
@@ -49,7 +43,7 @@ resource "aws_instance" "template-basic-ec2" {
   }
 }
 
- output "aws_instance_ip" {
+ output "aws_instance_ip_minimal" {
 
    value = aws_instance.template-basic-ec2.public_ip
    description = "The public IP address of our instance"
