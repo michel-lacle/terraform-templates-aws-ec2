@@ -38,6 +38,7 @@ resource "aws_instance" "ec2-minimal" {
   vpc_security_group_ids = [aws_security_group.ec2-sg-minimal.id]
 
  tags = {
+    Name = "ec2-minimal"
     owner = "terraform-templates-aws-ec2"
     project = "terraform-templates-aws-ec2"
   }

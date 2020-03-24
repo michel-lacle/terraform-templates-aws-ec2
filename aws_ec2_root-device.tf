@@ -52,6 +52,7 @@ resource "aws_instance" "ec2-root-device" {
   }
 
   tags = {
+    Name = "ec2-root-device"
     owner = "terraform-templates-aws-ec2"
     project = "terraform-templates-aws-ec2"
   }

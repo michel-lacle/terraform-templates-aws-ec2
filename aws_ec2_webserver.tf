@@ -50,6 +50,7 @@ resource "aws_instance" "ec2-webserver" {
     aws_security_group.ec2-sg-webserver.id]
 
   tags = {
+    Name = "ec2-webserver"
     owner = "terraform-templates-aws-ec2"
     project = "terraform-templates-aws-ec2"
   }
