@@ -41,9 +41,9 @@ resource "aws_instance" "ec2-root-device" {
     aws_security_group.ec2-sg-root-device.id]
 
   root_block_device {
-    volume_type = "io1"
+    volume_type = "gp2"
 
-    iops = 20000
+    #iops = 100
 
     # in GiB
     volume_size = "16"
