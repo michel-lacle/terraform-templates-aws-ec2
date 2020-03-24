@@ -41,14 +41,12 @@ resource "aws_instance" "ec2-root-device" {
     aws_security_group.ec2-sg-root-device.id]
 
   root_block_device {
-    volume_type = "gp2"
-
-    #iops = 100
+    volume_type = "io1"
 
     # in GiB
-    volume_size = "16"
+    volume_size = "100"
 
-
+    iops = 3000
 
     delete_on_termination = true
 
