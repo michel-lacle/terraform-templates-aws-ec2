@@ -46,6 +46,9 @@ resource "aws_instance" "ec2-ebs" {
     volume_size = 500
     volume_type = "sc1"
     delete_on_termination = false
+    tags = {
+      Name = "/dev/sdb"
+    }
   }
 
   ebs_block_device {
