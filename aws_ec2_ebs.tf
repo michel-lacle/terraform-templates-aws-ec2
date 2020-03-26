@@ -40,6 +40,7 @@ resource "aws_instance" "ec2-ebs" {
   vpc_security_group_ids = [
     aws_security_group.ec2-sg-ebs.id]
 
+  /*
   ebs_block_device {
     device_name = "/dev/sdb"
     volume_size = 500
@@ -59,7 +60,7 @@ resource "aws_instance" "ec2-ebs" {
     volume_size = 8
     volume_type = "standard"
     delete_on_termination = false
-  }
+  }*/
 
   tags = {
     Name = "ec2-ebs"
